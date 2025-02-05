@@ -20,7 +20,8 @@ function CourseReviewDetail() {
     async function getReviews() {
       try {
         const res = await axios.get(
-          "http://localhost:8080/api/review/getReviews"
+          // "http://localhost:8080/api/review/getReviews"
+          `${import.meta.env.BACKEND_URL}/api/review/getReviews`
         );
 
         const foundCourse = res.data.data.filter((review) =>

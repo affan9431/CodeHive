@@ -18,7 +18,8 @@ export default function Header({ setShowSidebar, showSidebar }) {
       if (decoded && decoded.id) {
         try {
           const res = await axios.get(
-            `http://localhost:8080/api/users/${decoded.id}`
+            // `http://localhost:8080/api/users/${decoded.id}`
+            `${import.meta.env.BACKEND_URL}/api/users/${decoded.id}`
           );
           setUserData(res.data.data);
         } catch (error) {
@@ -51,7 +52,7 @@ export default function Header({ setShowSidebar, showSidebar }) {
     localStorage.removeItem("userToken");
     navigate("/");
   };
-  
+
   return (
     <header className="w-full bg-white shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

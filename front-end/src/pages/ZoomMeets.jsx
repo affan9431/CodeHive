@@ -9,7 +9,10 @@ export default function ZoomMeets() {
 
   useEffect(() => {
     const getCourses = async () => {
-      const res = await axios.get("http://localhost:8080/api/live-tutoring");
+      // const res = await axios.get("http://localhost:8080/api/live-tutoring");
+      const res = await axios.get(
+        `${import.meta.env.BACKEND_URL}/api/live-tutoring`
+      );
       setCourses(res.data.data);
     };
     getCourses();
@@ -29,7 +32,8 @@ export default function ZoomMeets() {
     try {
       const token = localStorage.getItem("userToken");
       const session = await axios.post(
-        "http://localhost:8080/api/payment/create-charge-live",
+        // "http://localhost:8080/api/payment/create-charge-live",
+        `${import.meta.env.BACKEND_URL}/api/payment/create-charge-live`,
         { name: NAME, price: PRICE, URL: URL },
         { headers: { authorization: `Bearer ${token}` } }
       );

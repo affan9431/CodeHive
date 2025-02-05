@@ -36,7 +36,8 @@ export default function Header() {
       if (decoded && decoded.id) {
         try {
           const res = await axios.get(
-            `http://localhost:8080/api/users/${decoded.id}`
+            // `http://localhost:8080/api/users/${decoded.id}`
+            `${import.meta.env.BACKEND_URL}/api/users/${decoded.id}`
           );
           setUserData(res.data.data);
         } catch (error) {

@@ -14,11 +14,15 @@ const QASection = ({ questions, courseId, userId }) => {
 
     setIsSubmitting(true);
     try {
-      await axios.post(`http://localhost:8080/api/questions/${courseId}`, {
-        content: newQuestion,
-        courseId,
-        userId,
-      });
+      // await axios.post(`http://localhost:8080/api/questions/${courseId}`, {
+      await axios.post(
+        `${import.meta.env.BACKEND_URL}/api/questions/${courseId}`,
+        {
+          content: newQuestion,
+          courseId,
+          userId,
+        }
+      );
       setNewQuestion("");
       toast.success(
         "Your question has been successfully recorded. Our team will reach out to you shortly."

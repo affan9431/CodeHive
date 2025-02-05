@@ -64,7 +64,8 @@ function MyCourses() {
       <div className="flex flex-col items-center justify-center h-screen text-gray-600">
         <p className="mb-4 text-lg">No courses available.</p>
         <Link
-          to="http://localhost:5173/instructor/create-course"
+          // to="http://localhost:5173/instructor/create-course"
+          to={`${import.meta.env.VITE_FRONTEND_URL}/instructor/create-course`}
           className="px-4 py-2 text-white bg-[#2D2F31] transition"
         >
           Create a Course

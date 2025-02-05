@@ -11,7 +11,11 @@ function AvailableCourse() {
   useEffect(() => {
     const getData = async () => {
       try {
-        const res = await axios.get("http://localhost:8080/api/purchase");
+        // const res = await axios.get("http://localhost:8080/api/purchase");
+        const res = await axios.get(
+          `${import.meta.env.BACKEND_URL}/api/purchase`
+        );
+
         setAllPurchasedCourse(res.data.data);
       } catch (error) {
         console.log(error);
@@ -20,7 +24,6 @@ function AvailableCourse() {
 
     getData();
   }, []);
-
 
   useEffect(() => {
     const filteredCourses = AllpurchasedCourse.filter(

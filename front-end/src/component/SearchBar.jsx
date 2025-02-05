@@ -64,10 +64,10 @@ export default function SearchBar() {
   const [queryData, setQueryData] = useState([]);
   const [hideResult, setHideResult] = useState(true);
   const navigate = useNavigate();
-  const [debounceVal, setDebounceVal] = useState('');
+  const [debounceVal, setDebounceVal] = useState("");
 
   const debouncedChange = debounce((inputValue) => {
-    console.log('Debounced:', inputValue);
+    console.log("Debounced:", inputValue);
     setDebounceVal(inputValue);
   }, 2000);
 
@@ -79,7 +79,6 @@ export default function SearchBar() {
     setSearchTerm(event.target.value);
     setHideResult(false);
     debouncedChange(event.target.value);
-
   };
 
   const handleSelectSuggestion = (course) => {
@@ -91,7 +90,8 @@ export default function SearchBar() {
     // Uncomment this when using API search
     try {
       const res = await axios.get(
-        `http://localhost:8080/api/course/search?q=${searchTerm}`
+        // `http://localhost:8080/api/course/search?q=${searchTerm}`
+        `${import.meta.env.BACKEND_URL}/api/course/search?q=${searchTerm}`
       );
       setQueryData(res.data.data.courses);
       if (res.data.status === "success") {

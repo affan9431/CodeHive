@@ -49,7 +49,8 @@ export default function TeachingSurvey() {
         });
         localStorage.setItem("survey", userIdRef.current);
         setTimeout(() => {
-          location.href = "http://localhost:5173/instructor";
+          // location.href = "http://localhost:5173/instructor";
+          location.href = `${import.meta.env.VITE_FRONTEND_URL}/instructor`;
         }, 1000);
       } catch (error) {
         console.error("Error submitting survey:", error);
