@@ -30,9 +30,9 @@ app.use(express.json());
 
 app.use(cookieParser());
 
-
 mongoose
-  .connect(process.env.DATABASE_URL, {
+  // .connect(process.env.DATABASE_URL, {
+  .connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
@@ -53,7 +53,6 @@ app.use("/api/questions", QARouter);
 app.use("/api/notes", NoteRouter);
 app.use("/api/announcements", AnnouncementRouter);
 app.use("/api/live-tutoring", liveTutingRouter);
-
 
 app.all("*", (req, res, next) => {
   next(new AppError(`Can't find ${req.originalUrl} on the server`, 404));
