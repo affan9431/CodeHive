@@ -1,0 +1,91 @@
+export const styles = {
+  container: {
+    maxWidth: "64rem",
+    margin: "0 auto",
+    backgroundColor: "white",
+    boxShadow:
+      "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
+    borderRadius: "0.5rem",
+    overflow: "hidden",
+  },
+  header: {
+    backgroundColor: "#f9fafb",
+    padding: "1.5rem",
+  },
+  title: {
+    fontSize: "1.875rem",
+    fontWeight: "bold",
+    color: "#1f2937",
+  },
+  subtitle: {
+    marginTop: "0.5rem",
+    color: "#4b5563",
+  },
+  form: {
+    padding: "2rem",
+  },
+  formGroup: {
+    marginBottom: "1.5rem",
+  },
+  label: {
+    display: "block",
+    fontSize: "0.875rem",
+    fontWeight: "500",
+    color: "#374151",
+    marginBottom: "0.25rem",
+  },
+  input: {
+    width: "100%",
+    padding: "0.5rem 0.75rem",
+    borderRadius: "0.375rem",
+    border: "1px solid #d1d5db",
+    boxShadow: "0 1px 2px 0 rgba(0, 0, 0, 0.05)",
+    outline: "none",
+  },
+  textarea: {
+    width: "100%",
+    padding: "0.5rem 0.75rem",
+    borderRadius: "0.375rem",
+    border: "1px solid #d1d5db",
+    boxShadow: "0 1px 2px 0 rgba(0, 0, 0, 0.05)",
+    outline: "none",
+    resize: "vertical",
+  },
+  select: {
+    width: "100%",
+    padding: "0.5rem 0.75rem",
+    borderRadius: "0.375rem",
+    border: "1px solid #d1d5db",
+    boxShadow: "0 1px 2px 0 rgba(0, 0, 0, 0.05)",
+    outline: "none",
+    backgroundColor: "white",
+  },
+  button: {
+    width: "100%",
+    padding: "0.75rem 1rem",
+    backgroundColor: "#3b82f6",
+    color: "white",
+    borderRadius: "0.375rem",
+    border: "none",
+    fontWeight: "500",
+    cursor: "pointer",
+  },
+  fileUpload: {
+    display: "flex",
+    alignItems: "center",
+  },
+  fileButton: {
+    padding: "0.5rem 1rem",
+    backgroundColor: "#3b82f6",
+    color: "white",
+    borderRadius: "0.375rem",
+    border: "none",
+    fontWeight: "500",
+    cursor: "pointer",
+    marginRight: "1rem",
+  },
+  fileName: {
+    fontSize: "0.875rem",
+    color: "#6b7280",
+  },
+};
