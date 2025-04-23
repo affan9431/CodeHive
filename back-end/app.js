@@ -20,15 +20,23 @@ const paymentController = require("./controller/paymentController");
 
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: [
+      "http://localhost:5173", // Development
+      // "https://course-hive-master.netlify.app", // Production
+    ],
     methods: ["GET", "POST", "DELETE", "PATCH"],
     allowedHeaders: ["Content-Type", "Authorization"],
+    credentials: true, // Allow cookies and authentication headers
   })
 );
+
+app.options("*", cors());
 
 app.use(express.json());
 
 app.use(cookieParser());
+
+console.log(process.env.MONGODB_URI);
 
 mongoose
   // .connect(process.env.DATABASE_URL, {

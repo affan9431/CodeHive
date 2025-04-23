@@ -47,7 +47,7 @@ function ReviewModal({ isOpen, onClose, onSubmit }) {
   const [userId, setUserId] = useState("");
 
   useEffect(() => {
-    const token = localStorage.getItem("userToken");
+    const token = localStorage.getItem("token");
     const decoded = jwtDecode(token);
     const { id } = decoded;
     setUserId(id);
@@ -60,8 +60,8 @@ function ReviewModal({ isOpen, onClose, onSubmit }) {
     try {
       // Submit the review
       const res = await axios.post(
-        // "http://localhost:8080/api/review/createReview",
-        `${import.meta.env.BACKEND_URL}/api/review/createReview`,
+        "http://localhost:8080/api/review/createReview",
+        // `${import.meta.env.VITE_BACKEND_URL}/api/review/createReview`,
         {
           id,
           userId,
@@ -184,7 +184,7 @@ export default function CourseDetails() {
   }, []);
 
   useEffect(() => {
-    const token = localStorage.getItem("userToken");
+    const token = localStorage.getItem("token");
     const decoded = jwtDecode(token);
     const { userName } = decoded;
     setUserName(userName);
@@ -195,8 +195,8 @@ export default function CourseDetails() {
       try {
         setIsLoading(true);
         const res = await axios.get(
-          // "http://localhost:8080/api/review/getReviews"
-          `${import.meta.env.BACKEND_URL}/api/review/getReviews`
+          "http://localhost:8080/api/review/getReviews"
+          // `${import.meta.env.VITE_BACKEND_URL}/api/review/getReviews`
         );
 
         const foundCourse = res.data.data.filter(
@@ -209,10 +209,10 @@ export default function CourseDetails() {
           setIsLoading(false);
         } else {
           setIsLoading(true);
-          // const res = await axios.get(`http://localhost:8080/api/course/${id}`);
-          const res = await axios.get(
-            `${import.meta.env.BACKEND_URL}/api/course/${id}`
-          );
+          const res = await axios.get(`http://localhost:8080/api/course/${id}`);
+          // const res = await axios.get(
+          //   `${import.meta.env.VITE_BACKEND_URL}/api/course/${id}`
+          // );
           setCourse(res.data.data);
           setIsLoading(false);
         }
@@ -226,11 +226,11 @@ export default function CourseDetails() {
 
   const handleBuyNow = async () => {
     try {
-      const token = localStorage.getItem("userToken");
+      const token = localStorage.getItem("token");
 
       const session = await axios.post(
-        // "http://localhost:8080/api/payment/create-charge",
-        `${import.meta.env.BACKEND_URL}/api/payment/create-charge`,
+        "http://localhost:8080/api/payment/create-charge",
+        // `${import.meta.env.VITE_BACKEND_URL}/api/payment/create-charge`,
         {
           name: course.courseTitle,
           price: Math.floor(course.price),
@@ -257,8 +257,8 @@ export default function CourseDetails() {
   const handleAddReview = async () => {};
 
   const handleDeleteReview = async (id) => {
-    // await axios.delete(`http://localhost:8080/api/review/${id}`);
-    await axios.delete(`${import.meta.env.BACKEND_URL}/api/review/${id}`);
+    await axios.delete(`http://localhost:8080/api/review/${id}`);
+    // await axios.delete(`${import.meta.env.VITE_BACKEND_URL}/api/review/${id}`);
     location.reload();
   };
 

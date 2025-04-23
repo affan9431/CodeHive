@@ -99,10 +99,10 @@ const Performance = () => {
     const getData = async () => {
       try {
         setIsLoading(true);
-        // const res = await axios.get("http://localhost:8080/api/purchase");
-        const res = await axios.get(
-          `${import.meta.env.BACKEND_URL}/api/purchase`
-        );
+        const res = await axios.get("http://localhost:8080/api/purchase");
+        // const res = await axios.get(
+        //   `${import.meta.env.VITE_BACKEND_URL}/api/purchase`
+        // );
         setAllPurchasedCourse(res.data.data);
         setIsLoading(false);
       } catch (error) {
@@ -128,7 +128,7 @@ const Performance = () => {
         setIsLoading(true);
         const res = await axios.get(
           // "http://localhost:8080/api/review/getReviews"
-          `${import.meta.env.BACKEND_URL}/api/review/getReviews`
+          `${import.meta.env.VITE_BACKEND_URL}/api/review/getReviews`
         );
 
         const foundCourse = res?.data?.data?.find((review) =>

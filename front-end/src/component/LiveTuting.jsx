@@ -31,10 +31,10 @@ export default function LiveTutoring() {
       }
 
       // Here you would typically send the data to your backend
-      // const res = await axios.post("http://localhost:8080/api/live-tutoring", {
-      const res = await axios.post(
-        `${import.meta.env.BACKEND_URL}/api/live-tutoring`,
-        {
+      const res = await axios.post("http://localhost:8080/api/live-tutoring", {
+      // const res = await axios.post(
+      //   `${import.meta.env.VITE_BACKEND_URL}/api/live-tutoring`,
+      //   {
           name: meetingName,
           price: price,
           zoomId: zoomId,

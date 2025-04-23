@@ -36,8 +36,8 @@ export default function Header() {
       if (decoded && decoded.id) {
         try {
           const res = await axios.get(
-            // `http://localhost:8080/api/users/${decoded.id}`
-            `${import.meta.env.BACKEND_URL}/api/users/${decoded.id}`
+            `http://localhost:8080/api/users/${decoded.id}`
+            // `${import.meta.env.VITE_BACKEND_URL}/api/users/${decoded.id}`
           );
           setUserData(res.data.data);
         } catch (error) {
@@ -52,7 +52,7 @@ export default function Header() {
 
   const handleLogout = () => {
     queryClient.removeQueries(["user"]);
-    localStorage.removeItem("userToken");
+    localStorage.removeItem("token");
     toast.success("Log Out Successfull!");
     navigate("/");
   };
@@ -143,7 +143,7 @@ export default function Header() {
                   <p className="text-lg font-semibold text-gray-800">
                     {userData && userData.userName
                       ? userData.userName.split(" ")[0]
-                      : userName.split(" ")[0]}
+                      : userName?.split(" ")[0]}
                   </p>
                 </div>
 

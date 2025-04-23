@@ -10,7 +10,7 @@ export function useLogin() {
   const { mutate: login, isLoading } = useMutation({
     mutationFn: ({ email, password }) => getLogin({ email, password }),
     onSuccess: (user) => {
-      localStorage.setItem("userToken", user.token);
+      localStorage.setItem("token", user.token);
       toast.success("Login successful!");
       navigate("/", { replace: true });
     },

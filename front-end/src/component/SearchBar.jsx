@@ -90,25 +90,24 @@ export default function SearchBar() {
     // Uncomment this when using API search
     try {
       const res = await axios.get(
-        // `http://localhost:8080/api/course/search?q=${searchTerm}`
-        `${import.meta.env.BACKEND_URL}/api/course/search?q=${searchTerm}`
+        `http://localhost:8080/api/course/search?q=${searchTerm}`
+        // `${import.meta.env.VITE_BACKEND_URL}/api/course/search?q=${searchTerm}`
       );
       setQueryData(res.data.data.courses);
+      console.log(res.data.data.courses);
       if (res.data.status === "success") {
+        sessionStorage.setItem(
+          "queryData",
+          JSON.stringify(res.data.data.courses)
+        );
         setTimeout(() => {
-          navigate(`/app/search/${searchTerm}`);
+          navigate(`/app/search/${searchTerm}`, { replace: true });
         }, 500);
       }
     } catch (err) {
       console.error(err);
     }
   };
-
-  useEffect(() => {
-    if (queryData.length > 0) {
-      sessionStorage.setItem("queryData", JSON.stringify(queryData));
-    }
-  }, [queryData]);
 
   // Filter course categories based on search input
   const filteredCategories = courseCategories.filter((course) =>

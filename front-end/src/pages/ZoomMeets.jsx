@@ -9,10 +9,10 @@ export default function ZoomMeets() {
 
   useEffect(() => {
     const getCourses = async () => {
-      // const res = await axios.get("http://localhost:8080/api/live-tutoring");
-      const res = await axios.get(
-        `${import.meta.env.BACKEND_URL}/api/live-tutoring`
-      );
+      const res = await axios.get("http://localhost:8080/api/live-tutoring");
+      // const res = await axios.get(
+      //   `${import.meta.env.VITE_BACKEND_URL}/api/live-tutoring`
+      // );
       setCourses(res.data.data);
     };
     getCourses();
@@ -30,10 +30,10 @@ export default function ZoomMeets() {
     setIsProcessing(true);
 
     try {
-      const token = localStorage.getItem("userToken");
+      const token = localStorage.getItem("token");
       const session = await axios.post(
-        // "http://localhost:8080/api/payment/create-charge-live",
-        `${import.meta.env.BACKEND_URL}/api/payment/create-charge-live`,
+        "http://localhost:8080/api/payment/create-charge-live",
+        // `${import.meta.env.VITE_BACKEND_URL}/api/payment/create-charge-live`,
         { name: NAME, price: PRICE, URL: URL },
         { headers: { authorization: `Bearer ${token}` } }
       );
@@ -59,7 +59,7 @@ export default function ZoomMeets() {
       <div className="bg-white rounded-lg shadow-md p-6">
         <h2 className="text-2xl font-semibold mb-4">Available Courses</h2>
         <ul className="space-y-4">
-          {courses.map((course, index) => {
+          {courses?.map((course, index) => {
             const todayLocalString = getLocalDateString(currentTime);
             const isToday = course.startDate === todayLocalString;
             let isSessionActive = false;

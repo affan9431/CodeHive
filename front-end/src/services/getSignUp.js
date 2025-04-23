@@ -2,15 +2,15 @@ import axios from "axios";
 
 export async function getSignUp({ userName, email, password }) {
   try {
-    // const res = await axios.post("http://localhost:8080/api/users/signup", {
-    const res = await axios.post(
-      `${import.meta.env.BACKEND_URL}/api/users/signup`,
-      {
-        userName,
-        email,
-        password,
-      }
-    );
+    const res = await axios.post("http://localhost:8080/api/users/signup", {
+      // const res = await axios.post(
+      // `${import.meta.env.VITE_BACKEND_URL}/api/users/signup`,
+      // `https://codehive-backend-gmdx.onrender.com/api/users/signup`,
+      // {
+      userName,
+      email,
+      password,
+    });
 
     return res.data.data;
   } catch (error) {

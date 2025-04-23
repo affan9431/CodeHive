@@ -1,7 +1,7 @@
 import { jwtDecode } from "jwt-decode";
 
 export const getName = () => {
-  const storedToken = localStorage.getItem("userToken");
+  const storedToken = localStorage.getItem("token");
 
   if (!storedToken) {
     console.error("No token found");

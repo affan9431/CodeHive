@@ -11,10 +11,10 @@ function AvailableCourse() {
   useEffect(() => {
     const getData = async () => {
       try {
-        // const res = await axios.get("http://localhost:8080/api/purchase");
-        const res = await axios.get(
-          `${import.meta.env.BACKEND_URL}/api/purchase`
-        );
+        const res = await axios.get("http://localhost:8080/api/purchase");
+        // const res = await axios.get(
+        //   `${import.meta.env.VITE_BACKEND_URL}/api/purchase`
+        // );
 
         setAllPurchasedCourse(res.data.data);
       } catch (error) {

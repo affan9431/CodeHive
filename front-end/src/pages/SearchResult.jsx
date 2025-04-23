@@ -12,7 +12,7 @@ function SearchResult() {
     if (data && data.length > 0) {
       setQueryData(data);
     }
-  }, []);
+  }, [name]);
 
   return (
     <div>
@@ -46,11 +46,11 @@ function SearchResult() {
                       />
                     </div>
                     <div className="flex flex-col gap-2">
-                      <h1 className="font-bold">{course.courseTitle}</h1>
-                      <p className="truncate">{course.courseSubtitle}</p>
-                      <p>Created By: {course.createdBy.userName}</p>
+                      <h1 className="font-bold">{course?.courseTitle}</h1>
+                      <p className="truncate">{course?.courseSubtitle}</p>
+                      <p>Created By: {course?.createdBy?.userName}</p>
                       <p>
-                        {course.symbol} {course.price}
+                        {course?.symbol} {course?.price}
                       </p>
                     </div>
                   </div>

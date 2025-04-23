@@ -10,16 +10,15 @@ const ReviewsSection = ({ reviews, courseId, userId }) => {
   const handleSubmitReview = async () => {
     try {
       setIsSubmit(true);
-      // await axios.post(`http://localhost:8080/api/review/createReview`, {
-      await axios.post(
-        `${import.meta.env.BACKEND_URL}/api/review/createReview`,
-        {
-          id: courseId,
-          userId: userId,
-          rating: newReview.rating,
-          message: newReview.content,
-        }
-      );
+      await axios.post(`http://localhost:8080/api/review/createReview`, {
+        // await axios.post(
+        // `${import.meta.env.VITE_BACKEND_URL}/api/review/createReview`,
+        // {
+        id: courseId,
+        userId: userId,
+        rating: newReview.rating,
+        message: newReview.content,
+      });
 
       toast.success(
         "Your review has been successfully submitted. Thank you for your feedback!"

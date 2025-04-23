@@ -28,7 +28,7 @@ export default function TeachingSurvey() {
   };
 
   useEffect(() => {
-    const data = localStorage.getItem("userToken");
+    const data = localStorage.getItem("token");
     if (data) {
       const decoded = jwtDecode(data);
       userIdRef.current = decoded.id;
@@ -49,8 +49,8 @@ export default function TeachingSurvey() {
         });
         localStorage.setItem("survey", userIdRef.current);
         setTimeout(() => {
-          // location.href = "http://localhost:5173/instructor";
-          location.href = `${import.meta.env.VITE_FRONTEND_URL}/instructor`;
+          location.href = "http://localhost:5173/instructor";
+          // location.href = `${import.meta.env.VITE_FRONTEND_URL}/instructor`;
         }, 1000);
       } catch (error) {
         console.error("Error submitting survey:", error);
