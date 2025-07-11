@@ -20,7 +20,7 @@ CodeHive is a full-featured **MERN Stack** e-learning platform inspired by Udemy
 - 🔍 Search functionality
 - ✍️ Course Reviews
 - 🔄 CRUD operations
-- 📡 Live Tutor (upcoming)
+- 📡 Live Tutor
 
 ---
 
