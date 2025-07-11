@@ -24,6 +24,10 @@ CodeHive is a full-featured **MERN Stack** e-learning platform inspired by Udemy
 
 ---
 
+---
+Live Preview: (https://code-hives.netlify.app/)
+---
+
 ## 🧱 Tech Stack
 
 | Frontend      | Backend         | Database | Tools & APIs                   |
