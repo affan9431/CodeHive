@@ -22,7 +22,7 @@ function HomeSection2() {
     <div className="flex flex-col gap-10 items-center justify-around mt-10 md:flex-row">
       <div>
         <img
-          src="../../public/hero2.png"
+          src="/hero2.png"
           alt=""
           className="w-80 h-80 md:w-96 md:h-96"
         />

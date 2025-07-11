@@ -90,8 +90,8 @@ export default function SearchBar() {
     // Uncomment this when using API search
     try {
       const res = await axios.get(
-        `http://localhost:8080/api/course/search?q=${searchTerm}`
-        // `${import.meta.env.VITE_BACKEND_URL}/api/course/search?q=${searchTerm}`
+        // `http://localhost:8080/api/course/search?q=${searchTerm}`
+        `${import.meta.env.VITE_BACKEND_URL}/api/course/search?q=${searchTerm}`
       );
       setQueryData(res.data.data.courses);
       console.log(res.data.data.courses);

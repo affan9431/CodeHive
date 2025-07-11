@@ -33,8 +33,8 @@ export default function BasicModal({ children, courseId, userId }) {
     try {
       setIsSave(true);
       await axios.post(
-        `http://localhost:8080/api/questions/${courseId}/answers`,
-        // `${import.meta.env.VITE_BACKEND_URL}/api/questions/${courseId}/answers`,
+        // `http://localhost:8080/api/questions/${courseId}/answers`,
+        `${import.meta.env.VITE_BACKEND_URL}/api/questions/${courseId}/answers`,
         {
           content: answer,
           userId: userId,

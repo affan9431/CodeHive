@@ -13,6 +13,7 @@ function SignUp() {
   const { signUp, isLoading } = useSignUp();
 
   async function onSubmit({ userName, email, password }) {
+    console.log("User signed up:", { userName, email });
     if (!userName || !email || !password) return;
     signUp({ userName, email, password });
   }

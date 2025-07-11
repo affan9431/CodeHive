@@ -95,8 +95,8 @@ const Profile = () => {
       // Now, update user data in MongoDB
 
       const response = await axios.patch(
-        `http://localhost:8080/api/users/${decoded.id}`, // Ensure the correct API endpoint
-        // `${import.meta.env.VITE_BACKEND_URL}/api/users/${decoded.id}`, // Ensure the correct API endpoint
+        // `http://localhost:8080/api/users/${decoded.id}`, // Ensure the correct API endpoint
+        `${import.meta.env.VITE_BACKEND_URL}/api/users/${decoded.id}`, // Ensure the correct API endpoint
         {
           userName: `${firstName} ${lastName}`,
           headline,
@@ -120,8 +120,8 @@ const Profile = () => {
     async function getUserById() {
       try {
         const res = await axios.get(
-          `http://localhost:8080/api/users/${decoded.id}`
-          // `${import.meta.env.VITE_BACKEND_URL}/api/users/${decoded.id}`
+          // `http://localhost:8080/api/users/${decoded.id}`
+          `${import.meta.env.VITE_BACKEND_URL}/api/users/${decoded.id}`
         );
         setUserData(res.data.data);
       } catch (error) {
@@ -138,7 +138,7 @@ const Profile = () => {
         <div className="flex flex-col items-center mb-6">
           <div className="relative">
             <img
-              src={image ? image : "../../public/default.jpg"}
+              src={image ? image : "/default.jpg"}
               alt="Profile"
               className="w-24 h-24 rounded-full object-cover border border-gray-300"
             />

@@ -18,7 +18,7 @@ function Carousel() {
       {/* Image Content */}
       <div className="image-content relative w-full md:w-1/2">
         <img
-          src="../../public/hero.png"
+          src="/hero.png"
           alt="Hero"
           className="max-w-full h-auto mx-auto"
         />

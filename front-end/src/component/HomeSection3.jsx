@@ -43,7 +43,7 @@ function HomeSection3() {
       {/* Image Section */}
       <div className="w-full md:w-1/2 mt-8 md:mt-0 flex justify-center">
         <img
-          src="./../../public/hero3.png"
+          src="/hero3.png"
           alt="Instructor"
           className="w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 object-contain"
         />

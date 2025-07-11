@@ -99,10 +99,10 @@ const Performance = () => {
     const getData = async () => {
       try {
         setIsLoading(true);
-        const res = await axios.get("http://localhost:8080/api/purchase");
-        // const res = await axios.get(
-        //   `${import.meta.env.VITE_BACKEND_URL}/api/purchase`
-        // );
+        // const res = await axios.get("http://localhost:8080/api/purchase");
+        const res = await axios.get(
+          `${import.meta.env.VITE_BACKEND_URL}/api/purchase`
+        );
         setAllPurchasedCourse(res.data.data);
         setIsLoading(false);
       } catch (error) {
@@ -193,7 +193,7 @@ const Performance = () => {
         <header className="bg-white shadow rounded-lg p-6 mb-8 transition-all duration-300 ease-in-out hover:shadow-lg">
           <div className="flex items-center">
             <img
-              src="../../public/default.jpg"
+              src="/default.jpg"
               alt="Instructor"
               className="w-24 h-24 rounded-full mr-6 border-4 border-purple-200"
             />

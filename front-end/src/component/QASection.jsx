@@ -14,10 +14,10 @@ const QASection = ({ questions, courseId, userId }) => {
 
     setIsSubmitting(true);
     try {
-      await axios.post(`http://localhost:8080/api/questions/${courseId}`, {
-      // await axios.post(
-      //   `${import.meta.env.VITE_BACKEND_URL}/api/questions/${courseId}`,
-      //   {
+      // await axios.post(`http://localhost:8080/api/questions/${courseId}`, {
+      await axios.post(
+        `${import.meta.env.VITE_BACKEND_URL}/api/questions/${courseId}`,
+        {
           content: newQuestion,
           courseId,
           userId,

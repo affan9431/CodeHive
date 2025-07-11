@@ -49,7 +49,7 @@ export default function Category() {
                               <img
                                 src={`${
                                   course.imagePreview ||
-                                  "./../../public/blockchain.jpeg"
+                                  "/blockchain.jpeg"
                                 }`} // Make sure the image URL from API is correct
                                 alt={course.courseTitle}
                                 className="w-full h-40 object-cover"
@@ -68,7 +68,7 @@ export default function Category() {
                                     {course.price}
                                   </span>
                                   <Link
-                                    to={`/app/courseDetail/${course._id}`}
+                                    to={`${import.meta.env.VITE_FRONTEND_URL}/app/courseDetail/${course._id}`}
                                     className="text-black font-semibold py-2 px-4 rounded-md"
                                   >
                                     View Course

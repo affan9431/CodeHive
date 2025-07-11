@@ -20,8 +20,8 @@ function CourseReviewDetail() {
     async function getReviews() {
       try {
         const res = await axios.get(
-          "http://localhost:8080/api/review/getReviews"
-          // `${import.meta.env.VITE_BACKEND_URL}/api/review/getReviews`
+          // "http://localhost:8080/api/review/getReviews"
+          `${import.meta.env.VITE_BACKEND_URL}/api/review/getReviews`
         );
 
         const foundCourse = res.data.data.filter((review) =>
@@ -56,7 +56,7 @@ function CourseReviewDetail() {
                 >
                   <div className="flex items-center mb-2">
                     <img
-                      src="../../public/default.jpg"
+                      src="/default.jpg"
                       alt="Profile"
                       className="w-10 h-10 rounded-full object-cover"
                     />

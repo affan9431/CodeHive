@@ -49,10 +49,10 @@ export default function LectureAccess() {
   useEffect(() => {
     const getData = async () => {
       try {
-        const res = await axios.get("http://localhost:8080/api/purchase");
-        // const res = await axios.get(
-        //   `${import.meta.env.VITE_BACKEND_URL}/api/purchase`
-        // );
+        // const res = await axios.get("http://localhost:8080/api/purchase");
+        const res = await axios.get(
+          `${import.meta.env.VITE_BACKEND_URL}/api/purchase`
+        );
         setAllPurchasedCourse(res.data.data);
       } catch (error) {
         console.log(error);
@@ -78,12 +78,12 @@ export default function LectureAccess() {
   useEffect(() => {
     async function getReviews() {
       try {
-        const res = await axios.get(
-          "http://localhost:8080/api/review/getReviews"
-        );
         // const res = await axios.get(
-        //   `${import.meta.env.VITE_BACKEND_URL}/api/review/getReviews`
+        //   "http://localhost:8080/api/review/getReviews"
         // );
+        const res = await axios.get(
+          `${import.meta.env.VITE_BACKEND_URL}/api/review/getReviews`
+        );
         const foundCourse = res.data.data.filter(
           (review) => review.courseID._id === id
         );
@@ -157,14 +157,14 @@ export default function LectureAccess() {
 
       if (sessionId && !paymentVerified) {
         try {
-          const response = await axios.post(
-            "http://localhost:8080/api/payment/verify",
-            { sessionId }
-          );
           // const response = await axios.post(
-          //   `${import.meta.env.VITE_BACKEND_URL}/api/payment/verify`,
+          //   "http://localhost:8080/api/payment/verify",
           //   { sessionId }
           // );
+          const response = await axios.post(
+            `${import.meta.env.VITE_BACKEND_URL}/api/payment/verify`,
+            { sessionId }
+          );
           if (response.data.status === "success") {
             alert("Payment verified successfully!");
             // Set the flag in localStorage to prevent future verification
@@ -183,16 +183,16 @@ export default function LectureAccess() {
     const fetchData = async () => {
       try {
         const [questionsRes, notesRes, announcementsRes] = await Promise.all([
-          axios.get(`http://localhost:8080/api/questions`),
-          // axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/questions`),
-          axios.get(`http://localhost:8080/api/notes/${decoded.id}/${id}`),
-          // axios.get(
-          //   `${import.meta.env.VITE_BACKEND_URL}/api/notes/${decoded.id}/${id}`
-          // ),
-          axios.get(`http://localhost:8080/api/announcements/${id}`),
-          // axios.get(
-          //   `${import.meta.env.VITE_BACKEND_URL}/api/announcements/${id}`
-          // ),
+          // axios.get(`http://localhost:8080/api/questions`),
+          axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/questions`),
+          // axios.get(`http://localhost:8080/api/notes/${decoded.id}/${id}`),
+          axios.get(
+            `${import.meta.env.VITE_BACKEND_URL}/api/notes/${decoded.id}/${id}`
+          ),
+          // axios.get(`http://localhost:8080/api/announcements/${id}`),
+          axios.get(
+            `${import.meta.env.VITE_BACKEND_URL}/api/announcements/${id}`
+          ),
         ]);
         setQuestions(questionsRes.data.data);
         setNotes(notesRes.data.data);

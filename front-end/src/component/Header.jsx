@@ -36,8 +36,8 @@ export default function Header() {
       if (decoded && decoded.id) {
         try {
           const res = await axios.get(
-            `http://localhost:8080/api/users/${decoded.id}`
-            // `${import.meta.env.VITE_BACKEND_URL}/api/users/${decoded.id}`
+            // `http://localhost:8080/api/users/${decoded.id}`
+            `${import.meta.env.VITE_BACKEND_URL}/api/users/${decoded.id}`
           );
           setUserData(res.data.data);
         } catch (error) {
@@ -135,7 +135,7 @@ export default function Header() {
                     src={
                       userData && userData.imageUrl
                         ? userData.imageUrl
-                        : "../../public/default.jpg"
+                        : "/default.jpg"
                     }
                     alt="Profile"
                     className="w-10 h-10 rounded-full object-cover"
@@ -211,7 +211,7 @@ export default function Header() {
                     src={
                       userData && userData.imageUrl
                         ? userData.imageUrl
-                        : "../../public/default.jpg"
+                        : "/default.jpg"
                     }
                     alt="Profile"
                     className="w-10 h-10 rounded-full object-cover"

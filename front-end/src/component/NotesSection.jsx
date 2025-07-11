@@ -10,8 +10,8 @@ const NotesSection = ({ notes, courseId, userId }) => {
   const handleSubmitNote = async (e) => {
     setIsSubmitting(true);
     try {
-      await axios.post(`http://localhost:8080/api/notes`, {
-      // await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/notes`, {
+      // await axios.post(`http://localhost:8080/api/notes`, {
+      await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/notes`, {
         content: newNote,
         userId,
         courseId,

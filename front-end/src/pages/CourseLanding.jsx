@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { FaChevronDown } from "react-icons/fa";
 import { useParams } from "react-router-dom";
-import CourseImage from "../../public/coursePhoto.jpg";
 import { getName } from "../utils/getName"; // Import the function to get user ID
 import supabase from "../services/supabase";
 
@@ -76,7 +75,7 @@ function CourseLanding() {
     languageName: "English (US)",
     levelName: "--Select Level--",
     categoryName: "--Select Category--",
-    imagePreview: CourseImage,
+    imagePreview: "/coursePhoto.jpg",
     promotionalVideo: null,
   });
 

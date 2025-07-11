@@ -5,7 +5,6 @@ const Review = require("../model/reviewModel");
 exports.createCourse = async (req, res) => {
   try {
     const course = await Course.create(req.body);
-    console.log(course);
     res.status(201).json({
       status: "success",
       data: {
@@ -58,7 +57,7 @@ exports.updateCourse = async (req, res, next) => {
 exports.getCourseByQuery = async (req, res, next) => {
   try {
     const { q } = req.query;
-    
+
     const courses = await Course.find({
       $or: [
         { categoryName: { $regex: q, $options: "i" } }, // Case-insensitive search in category

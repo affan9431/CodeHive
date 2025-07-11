@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { Star, Clock, BarChart, Award, PlayCircle, X } from "lucide-react";
 import { coursesData } from "./../data/dummyData"; // Import the dummy data
 import axios from "axios";
@@ -45,23 +45,33 @@ function ReviewModal({ isOpen, onClose, onSubmit }) {
   const [rating, setRating] = useState(0);
   const [message, setMessage] = useState("");
   const [userId, setUserId] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
     const token = localStorage.getItem("token");
-    const decoded = jwtDecode(token);
-    const { id } = decoded;
-    setUserId(id);
-  }, []);
+    if (!token) return;
 
+    try {
+      const decoded = jwtDecode(token);
+      if (decoded?.id) {
+        setUserId(decoded.id);
+      }
+    } catch (error) {
+      console.error("Invalid token:", error);
+    }
+  }, []);
   const handleSubmit = async (e) => {
     e.preventDefault();
     onSubmit({ message, rating });
 
     try {
       // Submit the review
+      if (userId === "") {
+        navigate("/login", { replace: true });
+      }
       const res = await axios.post(
-        "http://localhost:8080/api/review/createReview",
-        // `${import.meta.env.VITE_BACKEND_URL}/api/review/createReview`,
+        // "http://localhost:8080/api/review/createReview",
+        `${import.meta.env.VITE_BACKEND_URL}/api/review/createReview`,
         {
           id,
           userId,
@@ -185,9 +195,15 @@ export default function CourseDetails() {
 
   useEffect(() => {
     const token = localStorage.getItem("token");
-    const decoded = jwtDecode(token);
-    const { userName } = decoded;
-    setUserName(userName);
+    if (!token) return;
+
+    try {
+      const decoded = jwtDecode(token);
+      const { userName } = decoded;
+      setUserName(userName);
+    } catch (error) {
+      console.log(error);
+    }
   }, []);
 
   useEffect(() => {
@@ -195,8 +211,8 @@ export default function CourseDetails() {
       try {
         setIsLoading(true);
         const res = await axios.get(
-          "http://localhost:8080/api/review/getReviews"
-          // `${import.meta.env.VITE_BACKEND_URL}/api/review/getReviews`
+          // "http://localhost:8080/api/review/getReviews"
+          `${import.meta.env.VITE_BACKEND_URL}/api/review/getReviews`
         );
 
         const foundCourse = res.data.data.filter(
@@ -209,10 +225,10 @@ export default function CourseDetails() {
           setIsLoading(false);
         } else {
           setIsLoading(true);
-          const res = await axios.get(`http://localhost:8080/api/course/${id}`);
-          // const res = await axios.get(
-          //   `${import.meta.env.VITE_BACKEND_URL}/api/course/${id}`
-          // );
+          // const res = await axios.get(`http://localhost:8080/api/course/${id}`);
+          const res = await axios.get(
+            `${import.meta.env.VITE_BACKEND_URL}/api/course/${id}`
+          );
           setCourse(res.data.data);
           setIsLoading(false);
         }
@@ -229,8 +245,8 @@ export default function CourseDetails() {
       const token = localStorage.getItem("token");
 
       const session = await axios.post(
-        "http://localhost:8080/api/payment/create-charge",
-        // `${import.meta.env.VITE_BACKEND_URL}/api/payment/create-charge`,
+        // "http://localhost:8080/api/payment/create-charge",
+        `${import.meta.env.VITE_BACKEND_URL}/api/payment/create-charge`,
         {
           name: course.courseTitle,
           price: Math.floor(course.price),
@@ -358,7 +374,7 @@ export default function CourseDetails() {
                           >
                             <div className="flex items-center mb-2">
                               <img
-                                src="../../public/default.jpg"
+                                src="/default.jpg"
                                 alt="Profile"
                                 className="w-10 h-10 rounded-full object-cover"
                               />

@@ -115,11 +115,11 @@ function InstructorCourseManage() {
         captions.length === 1 &&
         currencyPrice.length === 1
       ) {
-        await axios.post("http://localhost:8080/api/course", newCoursePayload);
-        // await axios.post(
-        //   `${import.meta.env.VITE_BACKEND_URL}/api/course`,
-        //   newCoursePayload
-        // );
+        // await axios.post("http://localhost:8080/api/course", newCoursePayload);
+        await axios.post(
+          `${import.meta.env.VITE_BACKEND_URL}/api/course`,
+          newCoursePayload
+        );
       } else if (
         courseData.length === 1 &&
         backendCourse.status === "draft" &&
@@ -128,8 +128,8 @@ function InstructorCourseManage() {
         currencyPrice.length === 1
       ) {
         await axios.patch(
-          `http://localhost:8080/api/course/${backendCourse._id}`,
-          // `${import.meta.env.VITE_BACKEND_URL}/api/course/${backendCourse._id}`,
+          // `http://localhost:8080/api/course/${backendCourse._id}`,
+          `${import.meta.env.VITE_BACKEND_URL}/api/course/${backendCourse._id}`,
 
           newCoursePayload
         );
@@ -149,8 +149,8 @@ function InstructorCourseManage() {
         prompt("Are sure you want to update this course with new data? Yes/No");
 
         await axios.patch(
-          `http://localhost:8080/api/course/${backendCourse._id}`,
-          // `${import.meta.env.VITE_BACKEND_URL}/api/course/${backendCourse._id}`,
+          // `http://localhost:8080/api/course/${backendCourse._id}`,
+          `${import.meta.env.VITE_BACKEND_URL}/api/course/${backendCourse._id}`,
           newCoursePayload
         );
         toast.success("Your course are successfully updated.");
@@ -195,11 +195,11 @@ function InstructorCourseManage() {
         };
         toast.success("Your course are successfully created.");
 
-        await axios.post("http://localhost:8080/api/course", newCoursePayload);
-        // await axios.post(
-        //   `${import.meta.env.VITE_BACKEND_URL}/api/course`,
-        //   newCoursePayload
-        // );
+        // await axios.post("http://localhost:8080/api/course", newCoursePayload);
+        await axios.post(
+          `${import.meta.env.VITE_BACKEND_URL}/api/course`,
+          newCoursePayload
+        );
 
         localStorage.setItem(
           `draftCourse${courseData[index]?.courseTitle}`,
@@ -250,11 +250,11 @@ function InstructorCourseManage() {
         randomID: id,
       };
 
-      await axios.post("http://localhost:8080/api/course", coursePayload);
-      // await axios.post(
-      //   `${import.meta.env.VITE_BACKEND_URL}/api/course`,
-      //   coursePayload
-      // );
+      // await axios.post("http://localhost:8080/api/course", coursePayload);
+      await axios.post(
+        `${import.meta.env.VITE_BACKEND_URL}/api/course`,
+        coursePayload
+      );
 
       toast.success(
         "We draft your course for now! You can publish it when you ready."
@@ -299,11 +299,11 @@ function InstructorCourseManage() {
         isPublished: false,
         randomID: id,
       };
-      await axios.post("http://localhost:8080/api/course", newCoursePayload);
-      // await axios.post(
-      //   `${import.meta.env.VITE_BACKEND_URL}/api/course`,
-      //   newCoursePayload
-      // );
+      // await axios.post("http://localhost:8080/api/course", newCoursePayload);
+      await axios.post(
+        `${import.meta.env.VITE_BACKEND_URL}/api/course`,
+        newCoursePayload
+      );
 
       toast.success("We draft your course.");
 
