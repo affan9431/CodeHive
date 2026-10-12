@@ -41,7 +41,7 @@ mongoose.set("strictQuery", true); // Suppress deprecation warning
 
 mongoose
   .connect(
-    "mongodb+srv://affansayeed234:PPCYYWaX00nZAi5l@cluster0.vefdbj6.mongodb.net/CodeHiveDB?retryWrites=true&w=majority",
+    "mongodb+srv://affansayeed:affan@786@cluster0.modmx.mongodb.net/CodeHiveDB?retryWrites=true&w=majority",
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
