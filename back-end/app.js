@@ -28,7 +28,7 @@ app.use(
     methods: ["GET", "POST", "DELETE", "PATCH"],
     allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true, // Allow cookies and authentication headers
-  })
+  }),
 );
 
 app.options("*", cors());
@@ -41,12 +41,12 @@ mongoose.set("strictQuery", true); // Suppress deprecation warning
 
 mongoose
   .connect(
-    "mongodb+srv://affansayeed:affan@786@cluster0.modmx.mongodb.net/CodeHiveDB?retryWrites=true&w=majority",
+    "mongodb+srv://affansayeed:affan%40786@cluster0.modmx.mongodb.net/CodeHiveDB?retryWrites=true&w=majority",
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
       serverSelectionTimeoutMS: 5000,
-    }
+    },
   )
   .then(() => {
     console.log("MongoDB connected successfully");
